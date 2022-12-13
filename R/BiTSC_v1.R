@@ -49,6 +49,10 @@ bitsc_v1 <- function(rho_0, niter_0) {
 
   # start_time <- Sys.time()
   B = mat_K1 %*% A %*% mat_K2 + Tau1*A %*% mat_K2 + Tau2*mat_K1 %*% A + Tau1*Tau2*A
+  # browser()
+  #
+  B <- as.matrix(B)
+  # print(typeof(B))
   B_T = t(B)
 
   B0 = matrix(0, nrow = num_m, ncol = num_m)
@@ -177,4 +181,14 @@ bitsc_v1 <- function(rho_0, niter_0) {
   # plot(Hclust1)
   return(avg.M)
 }
-
+library(readr)
+library(dplyr)
+library(Matrix)
+library(matrixLaplacian)
+library(wordspace)
+library(matrixStats)
+library(profvis)
+library(rARPACK)
+library(bench)
+library(Rfast)
+tst_m <- bitsc_v1(0.01, 3)
