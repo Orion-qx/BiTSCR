@@ -2,6 +2,7 @@
 
 export(bitsc_v1)
 export(hello)
+import(Matrix)
 import(Rfast)
 import(dplyr)
 import(matrixLaplacian)

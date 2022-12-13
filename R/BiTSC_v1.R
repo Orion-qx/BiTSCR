@@ -7,7 +7,7 @@
 #'
 #' @return the same x
 #'
-#' @import readr dplyr matrixLaplacian wordspace matrixStats rARPACK Rfast
+#' @import readr dplyr matrixLaplacian wordspace matrixStats rARPACK Rfast Matrix
 #'
 #' @export
 #'
