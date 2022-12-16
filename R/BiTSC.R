@@ -38,10 +38,12 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
                    j = match(A.orig$S2, colnames(A)),
                    x = A.orig$Value)
 
-  euclid1_xij = as.matrix(dist(X1, method = "euclidean", diag = TRUE, upper = TRUE))
+  # euclid1_xij = as.matrix(Dist(X1, method = "euclidean", diag = TRUE, upper = TRUE))
+  euclid1_xij = as.matrix(Dist(X1, method = "euclidean"))
   mat_K1 = exp(-(euclid1_xij)^2/p1)
 
-  euclid2_xij = as.matrix(dist(X2, method = "euclidean", diag = TRUE, upper = TRUE))
+  # euclid2_xij = as.matrix(Dist(X2, method = "euclidean", diag = TRUE, upper = TRUE))
+  euclid2_xij = as.matrix(Dist(X2, method = "euclidean"))
   mat_K2 = exp(-(euclid2_xij)^2/p2)
 
   # set Tau value:
@@ -128,14 +130,16 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
       X1_uns_sim = X1[gene1_uns_idx,]
       X2_uns_sim = X2[gene2_uns_idx,]
 
-      unassigned_cluster1 <- dist.matrix(X1_uns_sim, t(MCV1), method = "euclidean")
+      # unassigned_cluster1 <- dist.matrix(X1_uns_sim, t(MCV1), method = "euclidean")
+      unassigned_cluster1 <- dista(X1_uns_sim, t(MCV1), type = "euclidean")
       cluster_uns_g1 <- vector(length = nrow(unassigned_cluster1))
       # for (j in 1:nrow(unassigned_cluster1)) {
       #   cluster_uns_g1[j] <- which.min(unassigned_cluster1[j,])
       # }
       cluster_uns_g1 <- rowMins(unassigned_cluster1, na.rm = T,value = FALSE)
 
-      unassigned_cluster2 <- dist.matrix(X2_uns_sim, t(MCV2), method = "euclidean")
+      # unassigned_cluster2 <- dist.matrix(X2_uns_sim, t(MCV2), method = "euclidean")
+      unassigned_cluster2 <- dista(X2_uns_sim, t(MCV2), type = "euclidean")
       cluster_uns_g2 <- vector(length = nrow(unassigned_cluster2))
 
 

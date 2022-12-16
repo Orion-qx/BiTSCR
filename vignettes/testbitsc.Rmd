@@ -19,18 +19,30 @@ urlfile1 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/nod
 
 ```
 
-```{r sample_output}
+```{r preliminary_output}
 rho = 0.5
 ninter = 10
 start_time <- Sys.time()
 # avg.M1 <- bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
 # print(paste0("Runtime: ", Sys.time() - start_time))
-```
-
-```{r }
-# Hclust1 = hclust(as.dist(avg.M1), method = "complete")
-# alpha = 0.8
-# clusters <- cutree(Hclust1, h = 0.8)
+# Hclust1 = hclust(as.dist(1 - avg.M1), method = "complete")
+# clusters <- cutree(Hclust1, h = 0.6)
+# clusters2 <- cutree(Hclust1, h = 0.2)
+# print(length(unique(clusters)))
+# print(length(unique(clusters2)))
 # clusters <- cut(as.dendrogram(Hclust1), h = 0.8)
 # plot(clusters$lower[[2]])
+```
+
+```{r}
+# rho = 0.8
+# ninter = 50
+# start_time <- Sys.time()
+# avg.M2 <- bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
+# print(paste0("Runtime: ", Sys.time() - start_time))
+# Hclust2 = hclust(as.dist(1 - avg.M2), method = "complete")
+# clusters <- cutree(Hclust2, h = 0.6)
+# clusters2 <- cutree(Hclust2, h = 0.2)
+# print(length(unique(clusters)))
+# print(length(unique(clusters2)))
 ```
