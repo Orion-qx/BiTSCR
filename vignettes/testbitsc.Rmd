@@ -1,0 +1,36 @@
+---
+title: "test_bitsc"
+output: html_vignette
+vignette: >
+  %\VignetteIndexEntry{BiTSCR testbitsc}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+devtools::install_github("Orion-qx/BiTSCR")
+```
+
+```{r read_sample_data}
+urlfile1 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_one.csv"
+  urlfile2 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_two.csv"
+  urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edge_one_two.csv"
+
+```
+
+```{r sample_output}
+rho = 0.5
+ninter = 10
+start_time <- Sys.time()
+avg.M1 <- bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
+print(paste0("Runtime: ", Sys.time() - start_time))
+```
+
+```{r }
+Hclust1 = hclust(as.dist(avg.M1), method = "complete")
+alpha = 0.8
+clusters <- cutree(Hclust1, h = 0.8)
+# clusters <- cut(as.dendrogram(Hclust1), h = 0.8)
+# plot(clusters$lower[[2]])
+```

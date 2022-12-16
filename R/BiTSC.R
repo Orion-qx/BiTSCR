@@ -12,11 +12,11 @@
 #' @export
 #'
 
-bitsc_v1 <- function(rho_0, niter_0) {
+bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
 
-  urlfile1 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_one.csv"
-  urlfile2 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_two.csv"
-  urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edge_one_two.csv"
+  # urlfile1 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_one.csv"
+  # urlfile2 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_two.csv"
+  # urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edge_one_two.csv"
 
   X1.orig = read_csv(url(urlfile1))
   X2.orig = read_csv(url(urlfile2))
