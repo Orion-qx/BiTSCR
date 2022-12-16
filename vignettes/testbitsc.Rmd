@@ -23,14 +23,14 @@ urlfile1 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/nod
 rho = 0.5
 ninter = 10
 start_time <- Sys.time()
-avg.M1 <- bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
-print(paste0("Runtime: ", Sys.time() - start_time))
+# avg.M1 <- bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
+# print(paste0("Runtime: ", Sys.time() - start_time))
 ```
 
 ```{r }
-Hclust1 = hclust(as.dist(avg.M1), method = "complete")
-alpha = 0.8
-clusters <- cutree(Hclust1, h = 0.8)
+# Hclust1 = hclust(as.dist(avg.M1), method = "complete")
+# alpha = 0.8
+# clusters <- cutree(Hclust1, h = 0.8)
 # clusters <- cut(as.dendrogram(Hclust1), h = 0.8)
 # plot(clusters$lower[[2]])
 ```
