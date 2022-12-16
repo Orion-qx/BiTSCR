@@ -22,8 +22,21 @@ urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edg
 ```{r preliminary_output}
 rho = 0.5
 ninter = 10
-start_time <- Sys.time()
-# res <- bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
+# start_time <- Sys.time()
+# library(readr)
+# library(dplyr)
+# library(Matrix)
+# library(matrixLaplacian)
+# library(wordspace)
+# library(matrixStats)
+# library(profvis)
+# library(rARPACK)
+# library(bench)
+# library(Rfast)
+# res <- bitsc(rho, ninter, urlfile1, urlfile2, urlfile3, output_txt = TRUE)
+res <- BiTSCR::bitsc(rho, ninter, urlfile1, urlfile2, urlfile3, output_txt = TRUE)
+output_directory <- paste0(getwd(), "/clusters_results.txt")
+# opt_file = write.table(res$output
 # 
 # opt_file = write.table(output, file = "C://Users//15588//OneDrive//Desktop//cutree04.txt",sep = "\t", row.name = TRUE)
 

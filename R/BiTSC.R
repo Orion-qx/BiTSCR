@@ -119,10 +119,11 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3, output_txt = FAL
 
       unassigned_cluster1 <- dista(X1_uns_sim, t(MCV1), type = "euclidean")
       cluster_uns_g1 <- vector(length = nrow(unassigned_cluster1))
-      cluster_uns_g1 <- rowMins(unassigned_cluster1, value = FALSE) # changed na.rm = T
+      # cluster_uns_g1 <- rowMins(unassigned_cluster1, value = FALSE) # changed na.rm = T
+      cluster_uns_g1 <- rowMins(unassigned_cluster1, value = FALSE, na.rm = T)
       unassigned_cluster2 <- dista(X2_uns_sim, t(MCV2), type = "euclidean")
       cluster_uns_g2 <- vector(length = nrow(unassigned_cluster2))
-      cluster_uns_g2 <- rowMins(unassigned_cluster2, value = FALSE)
+      cluster_uns_g2 <- rowMins(unassigned_cluster2, value = FALSE, na.rm = T)
 
 
       unsampled_gene1_cluster <- cbind(cluster_uns_g1, gene1_uns_idx)
@@ -150,7 +151,7 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3, output_txt = FAL
 
   set.seed(20221128)
   avg.M <- sample_func(niter_0, rho_0)
-
+  browser()
   Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
   # plot dendrogram
   hclust_plt = plot(Hclust1)
@@ -173,3 +174,20 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3, output_txt = FAL
   my_return = list("ecdf_plt" = ecdf_plt, "avg.M" = avg.M, "Fn" = Fn, "hclust_plt" = hclust_plt, res_txt = output)
   return(my_return)
 }
+# rho = 0.5
+# ninter = 10
+# start_time <- Sys.time()
+# library(readr)
+# library(dplyr)
+# library(Matrix)
+# library(matrixLaplacian)
+# library(wordspace)
+# library(matrixStats)
+# library(profvis)
+# library(rARPACK)
+# library(bench)
+# library(Rfast)
+# urlfile1 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_one.csv"
+# urlfile2 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_two.csv"
+# urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edge_one_two.csv"
+# bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
