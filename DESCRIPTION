@@ -1,12 +1,14 @@
 Package: BiTSCR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: BiTSC
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Zhen Feng, Xuechun Wang, Qiaoxue Liu
+Maintainer: Qiaoxue Liu <qiaoxl@umich.edu>
 Depends: R (>= 4.1.1), Rfast, dplyr, matrixLaplacian, matrixStats, rARPACK, readr, wordspace, Matrix
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: An R algorithm
+    The Bipartite tight spectral clustering(BiTSC) is a novel cross-species gene co-clustering algorithm. 
+    It uses gene orthology information and gene expression data to identify tight gene co-clusters between a pair of species.
+    It also uses
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

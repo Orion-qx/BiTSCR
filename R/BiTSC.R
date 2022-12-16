@@ -12,7 +12,7 @@
 #' @export
 #'
 
-bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3, output_txt = FALSE) {
+bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
 
   X1.orig = read_csv(url(urlfile1))
   X2.orig = read_csv(url(urlfile2))
@@ -174,7 +174,7 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3, output_txt = FAL
   # }
   # my_return = list("ecdf_plt" = ecdf_plt, "avg.M" = avg.M, "Fn" = Fn,  res_txt = output) # "hclust_plt" = hclust_plt,
   # return(my_return)
-  return(list("avg.M" = avg.M, "gene.list" = c(gene1, gene2)))
+  return(avg.M)
 }
 # rho = 0.5
 # ninter = 10
