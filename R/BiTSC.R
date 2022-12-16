@@ -214,5 +214,6 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
 # library(bench)
 # library(Rfast)
 # library(IOHanalyzer)
+# library(stats)
 # tst_m <- bitsc_v1(0.01, 3)
 # devtools::install_github("Orion-qx/BiTSCR")
