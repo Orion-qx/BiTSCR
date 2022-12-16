@@ -151,45 +151,5 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
 
   set.seed(20221128)
   avg.M <- sample_func(niter_0, rho_0)
-  # Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
-  # alpha = 0.2
-  # #Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
-  # # plot dendrogram
-  # hclust_plt = plot(Hclust1)
-  # tree = cutree(Hclust1, h = 1 - alpha)
-  # # plot ecdf function
-  # Fn = ecdf(avg.M)
-  # ecdf_plt = plot(Fn, verticals = FALSE,  col.hor = "red", xlab = "concensus value", ylab = "empirical CDF", main = "", cex = 0.5)
-  #
-  # # txt file of co-clusters:
-  # if (output_txt == TRUE) {
-  #   cut_avg = data.frame(tree)
-  #   cut_avg = cbind(GeneId = rownames(cut_avg), cut_avg)
-  #   rownames(cut_avg) = 1:nrow(cut_avg)
-  #   colnames(cut_avg) = c("GeneId","Cluster")
-  #   output = NULL
-  #   for(i in 1:len_cluster){
-  #    output[[i]] = cut_avg2$GeneId[cut_avg$Cluster == i]
-  #   }
-  # }
-  # my_return = list("ecdf_plt" = ecdf_plt, "avg.M" = avg.M, "Fn" = Fn, "hclust_plt" = hclust_plt) # res_txt = output
-  # return(my_return)
   return(avg.M)
 }
-# rho = 0.5
-# ninter = 10
-# start_time <- Sys.time()
-# library(readr)
-# library(dplyr)
-# library(Matrix)
-# library(matrixLaplacian)
-# library(wordspace)
-# library(matrixStats)
-# library(profvis)
-# library(rARPACK)
-# library(bench)
-# library(Rfast)
-# urlfile1 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_one.csv"
-# urlfile2 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_two.csv"
-# urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edge_one_two.csv"
-# bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)

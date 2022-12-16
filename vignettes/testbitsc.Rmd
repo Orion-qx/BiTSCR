@@ -23,37 +23,37 @@ urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edg
 rho = 0.5
 ninter = 10
 start_time <- Sys.time()
-# res <- BiTSCR::bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
-# print(paste0("Runtime: ", Sys.time() - start_time))
+res <- BiTSCR::bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
+print(paste0("Runtime: ", Sys.time() - start_time))
 ```
 
 ```{r}
-# avg.M <- res
-# Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
-# # plot dendrogram
-# hclust_plt = plot(Hclust1)
-# alpha = 0.2
-# tree = cutree(Hclust1, h = 1 - alpha)
-# # plot ecdf function
-# Fn = ecdf(avg.M)
-# ecdf_plt = plot(Fn, verticals = FALSE,  col.hor = "red", xlab = "concensus value", ylab = "empirical CDF", main = "", cex = 0.5)
-# # output the results into a table
-# output_txt = TRUE
-# 
-# if (output_txt == TRUE) {
-#   
-#   cut_avg = data.frame(tree)
-#   cut_avg = cbind(GeneId = rownames(cut_avg), cut_avg)
-#   rownames(cut_avg) = 1:nrow(cut_avg)
-#   colnames(cut_avg) = c("GeneId","Cluster")
-#   output = NULL
-#   len_cluster <- length(table(cut_avg$Cluster))
-#   for(i in 1:len_cluster){
-#    output[[i]] = cut_avg$GeneId[cut_avg$Cluster == i]
-#   }
-# }
-# 
-# print(head(output, 5))
+avg.M <- res
+Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
+# plot dendrogram
+hclust_plt = plot(Hclust1)
+alpha = 0.2
+tree = cutree(Hclust1, h = 1 - alpha)
+# plot ecdf function
+Fn = ecdf(avg.M)
+ecdf_plt = plot(Fn, verticals = FALSE,  col.hor = "red", xlab = "concensus value", ylab = "empirical CDF", main = "", cex = 0.5)
+# output the results into a table
+output_txt = TRUE
+
+if (output_txt == TRUE) {
+
+  cut_avg = data.frame(tree)
+  cut_avg = cbind(GeneId = rownames(cut_avg), cut_avg)
+  rownames(cut_avg) = 1:nrow(cut_avg)
+  colnames(cut_avg) = c("GeneId","Cluster")
+  output = NULL
+  len_cluster <- length(table(cut_avg$Cluster))
+  for(i in 1:len_cluster){
+   output[[i]] = cut_avg$GeneId[cut_avg$Cluster == i]
+  }
+}
+
+print(head(output, 5))
 ```
 
 ```{r optional-case}
