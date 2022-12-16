@@ -14,8 +14,8 @@ devtools::install_github("Orion-qx/BiTSCR")
 
 ```{r read_sample_data}
 urlfile1 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_one.csv"
-  urlfile2 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_two.csv"
-  urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edge_one_two.csv"
+urlfile2 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_two.csv"
+urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edge_one_two.csv"
 
 ```
 
@@ -37,6 +37,9 @@ start_time <- Sys.time()
 ```{r}
 # rho = 0.7
 # ninter = 25
+# the second case
+rho = 0.7
+ninter = 25
 # start_time <- Sys.time()
 # avg.M2 <- bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
 # print(paste0("Runtime: ", Sys.time() - start_time))

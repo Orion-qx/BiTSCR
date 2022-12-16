@@ -136,7 +136,7 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
       # for (j in 1:nrow(unassigned_cluster1)) {
       #   cluster_uns_g1[j] <- which.min(unassigned_cluster1[j,])
       # }
-      cluster_uns_g1 <- rowMins(unassigned_cluster1, na.rm = T,value = FALSE)
+      cluster_uns_g1 <- rowMins(unassigned_cluster1, value = FALSE) # changed na.rm = T
 
       # unassigned_cluster2 <- dist.matrix(X2_uns_sim, t(MCV2), method = "euclidean")
       unassigned_cluster2 <- dista(X2_uns_sim, t(MCV2), type = "euclidean")
@@ -145,7 +145,7 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
 
       # stt <- Sys.time()
       # browser()
-      cluster_uns_g2 <- rowMins(unassigned_cluster2, na.rm = T,value = FALSE)
+      cluster_uns_g2 <- rowMins(unassigned_cluster2, value = FALSE)
       # print(Sys.time() - stt)
       # stt <- Sys.time()
       # for (j in 1:nrow(unassigned_cluster2)) {
@@ -181,9 +181,26 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
   set.seed(20221128)
   avg.M <- sample_func(niter_0, rho_0)
 
-  # Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
+  Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
+  # plot dendrogram
+  hclust_plt = plot(Hclust1)
+  tree = cutree(Hclust1, h = 1 - alpha)
+  # plot ecdf function
+  Fn = ecdf(avg.M)
+  ecdf_plt = plot(Fn, verticals = FALSE,  col.hor = "red", xlab = "concensus value", ylab = "empirical CDF", main = "", cex = 0.5)
 
-  # plot(Hclust1)
+  # txt file of co-clusters:
+  #cut_avg = data.frame(tree)
+  #cut_avg = cbind(GeneId = rownames(cut_avg), cut_avg)
+  #rownames(cut_avg) = 1:nrow(cut_avg)
+  #colnames(cut_avg) = c("GeneId","Cluster")
+  #output = NULL
+  #for(i in 1:len_cluster){
+  #  output[[i]] = cut_avg2$GeneId[cut_avg$Cluster == i]
+  #} 
+  #opt_file = write.table(output, file = "C://Users//15588//OneDrive//Desktop//cutree04.txt",sep = "\t", row.name = TRUE)
+  
+  my_return = list("ecdf_plt" = ecdf_plt, "avg.M" = avg.M, "Fn" = Fn, "hclust_plt" = hclust_plt)
   return(avg.M)
 }
 # library(readr)
@@ -196,5 +213,6 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
 # library(rARPACK)
 # library(bench)
 # library(Rfast)
+# library(IOHanalyzer)
 # tst_m <- bitsc_v1(0.01, 3)
 # devtools::install_github("Orion-qx/BiTSCR")
