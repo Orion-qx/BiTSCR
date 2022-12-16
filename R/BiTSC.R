@@ -152,7 +152,7 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3, output_txt = FAL
   set.seed(20221128)
   avg.M <- sample_func(niter_0, rho_0)
   # Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
-  #
+  # alpha = 0.2
   # #Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
   # # plot dendrogram
   # #hclust_plt = plot(Hclust1)
@@ -174,7 +174,7 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3, output_txt = FAL
   # }
   # my_return = list("ecdf_plt" = ecdf_plt, "avg.M" = avg.M, "Fn" = Fn,  res_txt = output) # "hclust_plt" = hclust_plt,
   # return(my_return)
-  return(avg.M)
+  return(list("avg.M" = avg.M, "gene.list" = c(gene1, gene2)))
 }
 # rho = 0.5
 # ninter = 10
