@@ -14,7 +14,7 @@ Please expect the warnings such as "Warning in do.call(.Call, args = dot_call_ar
 2. An edge matrix that includes the orthology information between these two species
 
 ## Outputs
-The frequency matrix $\bar{M}$ indicate how frequent two genes are connected in the simulations. The output can be polished and visualized using hierarchical clustering. There will be a dendrogram, a plot of cdf, and a list showing the index of gene that are grouped together. To match the index of the gene with the name of the gene, please find the gene dictionary in the folder "dictionary". Please see more details of the example in the following tutorial section.
+The frequency matrix $\bar{M}$ indicates how frequent two genes are connected in the simulations. The output can be polished and visualized using hierarchical clustering. There will be a dendrogram, a plot of cdf, and a list showing the index of gene that are grouped together. To match the index of the gene with the name of the gene, please find the gene dictionary in the folder "dictionary". Please see more details of the example in the following tutorial section.
 
 ## Tutorial
 Please see the R markdown "testbitsc.Rmd" in the vignettes for examples to install, run, and visualize the output clusters. 
