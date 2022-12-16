@@ -149,13 +149,14 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3, output_txt = FAL
     return(avg.M)
   }
 
-  set.seed(20221128)
+  #set.seed(20221128)
   avg.M <- sample_func(niter_0, rho_0)
-  browser()
   Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
+
+  #Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
   # plot dendrogram
-  hclust_plt = plot(Hclust1)
-  tree = cutree(Hclust1, h = 1 - alpha)
+  #hclust_plt = plot(Hclust1)
+  #tree = cutree(Hclust1, h = 1 - alpha)
   # plot ecdf function
   Fn = ecdf(avg.M)
   ecdf_plt = plot(Fn, verticals = FALSE,  col.hor = "red", xlab = "concensus value", ylab = "empirical CDF", main = "", cex = 0.5)
@@ -171,7 +172,7 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3, output_txt = FAL
      output[[i]] = cut_avg2$GeneId[cut_avg$Cluster == i]
     }
   }
-  my_return = list("ecdf_plt" = ecdf_plt, "avg.M" = avg.M, "Fn" = Fn, "hclust_plt" = hclust_plt, res_txt = output)
+  my_return = list("ecdf_plt" = ecdf_plt, "avg.M" = avg.M, "Fn" = Fn,  res_txt = output) # "hclust_plt" = hclust_plt,
   return(my_return)
 }
 # rho = 0.5
