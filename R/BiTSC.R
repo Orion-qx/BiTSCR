@@ -151,15 +151,15 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
 
   set.seed(20221128)
   avg.M <- sample_func(niter_0, rho_0)
-  Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
-  alpha = 0.2
+  # Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
+  # alpha = 0.2
   # #Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
   # # plot dendrogram
-  hclust_plt = plot(Hclust1)
-  tree = cutree(Hclust1, h = 1 - alpha)
+  # hclust_plt = plot(Hclust1)
+  # tree = cutree(Hclust1, h = 1 - alpha)
   # # plot ecdf function
-  Fn = ecdf(avg.M)
-  ecdf_plt = plot(Fn, verticals = FALSE,  col.hor = "red", xlab = "concensus value", ylab = "empirical CDF", main = "", cex = 0.5)
+  # Fn = ecdf(avg.M)
+  # ecdf_plt = plot(Fn, verticals = FALSE,  col.hor = "red", xlab = "concensus value", ylab = "empirical CDF", main = "", cex = 0.5)
   #
   # # txt file of co-clusters:
   # if (output_txt == TRUE) {
@@ -172,9 +172,9 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
   #    output[[i]] = cut_avg2$GeneId[cut_avg$Cluster == i]
   #   }
   # }
-  my_return = list("ecdf_plt" = ecdf_plt, "avg.M" = avg.M, "Fn" = Fn, "hclust_plt" = hclust_plt) # res_txt = output
-  return(my_return)
-  # return(avg.M)
+  # my_return = list("ecdf_plt" = ecdf_plt, "avg.M" = avg.M, "Fn" = Fn, "hclust_plt" = hclust_plt) # res_txt = output
+  # return(my_return)
+  return(avg.M)
 }
 # rho = 0.5
 # ninter = 10
