@@ -23,7 +23,10 @@ urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edg
 rho = 0.5
 ninter = 10
 start_time <- Sys.time()
-# avg.M1 <- bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
+# res <- bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
+# 
+# opt_file = write.table(output, file = "C://Users//15588//OneDrive//Desktop//cutree04.txt",sep = "\t", row.name = TRUE)
+
 # print(paste0("Runtime: ", Sys.time() - start_time))
 # Hclust1 = hclust(as.dist(1 - avg.M1), method = "complete")
 # clusters <- cutree(Hclust1, h = 0.6)
