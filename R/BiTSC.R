@@ -60,7 +60,7 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3, output_txt = FAL
   D_sqrt_inv = Diagonal(num_m + num_n, 1/sqrt(diagnal))
   L1 = diag(num_m + num_n) - D_sqrt_inv %*% W %*% D_sqrt_inv
 
-  sample_func <- function(niter, rho, K0 = 15) {
+  #sample_func <- function(niter, rho, K0 = 15) {
     avg.M = 0
     for (h in 1:niter) {
 
@@ -145,11 +145,11 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3, output_txt = FAL
       M.diff = (M - avg.M)
       avg.M = avg.M + M.diff / h
     }
-    return(avg.M)
-  }
+  #  return(avg.M)
+  #}
 
-  set.seed(20221128)
-  avg.M <- sample_func(niter_0, rho_0)
+  #set.seed(20221128)
+  #avg.M <- sample_func(niter_0, rho_0)
 
   #Hclust1 = hclust(as.dist(1-avg.M), method = "complete")
   # plot dendrogram
