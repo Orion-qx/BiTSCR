@@ -136,7 +136,7 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
       # for (j in 1:nrow(unassigned_cluster1)) {
       #   cluster_uns_g1[j] <- which.min(unassigned_cluster1[j,])
       # }
-      cluster_uns_g1 <- rowMins(unassigned_cluster1, na.rm = T,value = FALSE)
+      cluster_uns_g1 <- rowMins(unassigned_cluster1, value = FALSE) # changed na.rm = T
 
       # unassigned_cluster2 <- dist.matrix(X2_uns_sim, t(MCV2), method = "euclidean")
       unassigned_cluster2 <- dista(X2_uns_sim, t(MCV2), type = "euclidean")
@@ -145,7 +145,7 @@ bitsc <- function(rho_0, niter_0, urlfile1, urlfile2, urlfile3) {
 
       # stt <- Sys.time()
       # browser()
-      cluster_uns_g2 <- rowMins(unassigned_cluster2, na.rm = T,value = FALSE)
+      cluster_uns_g2 <- rowMins(unassigned_cluster2, value = FALSE)
       # print(Sys.time() - stt)
       # stt <- Sys.time()
       # for (j in 1:nrow(unassigned_cluster2)) {
