@@ -14,8 +14,8 @@ devtools::install_github("Orion-qx/BiTSCR")
 
 ```{r read_sample_data}
 urlfile1 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_one.csv"
-  urlfile2 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_two.csv"
-  urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edge_one_two.csv"
+urlfile2 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/node_covariate_two.csv"
+urlfile3 = "https://raw.githubusercontent.com/edensunyidan/BiTSC/master/data/edge_one_two.csv"
 
 ```
 
@@ -35,6 +35,9 @@ start_time <- Sys.time()
 ```
 
 ```{r}
+# the second case
+rho = 0.7
+ninter = 25
 # rho = 0.8
 # ninter = 50
 # start_time <- Sys.time()
