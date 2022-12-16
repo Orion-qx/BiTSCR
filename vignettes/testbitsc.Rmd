@@ -35,8 +35,8 @@ start_time <- Sys.time()
 ```
 
 ```{r}
-# rho = 0.8
-# ninter = 50
+# rho = 0.7
+# ninter = 25
 # start_time <- Sys.time()
 # avg.M2 <- bitsc(rho, ninter, urlfile1, urlfile2, urlfile3)
 # print(paste0("Runtime: ", Sys.time() - start_time))
